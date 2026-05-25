@@ -35,3 +35,4 @@ Notes:
 
 - Make sure the IAM keys used by the workflow have `s3:PutObject`, `s3:DeleteObject`, and `s3:ListBucket` on the target buckets. If you use CloudFront invalidation, add `cloudfront:CreateInvalidation`.
 - If you want per-PR friendly URLs, the workflow stores previews under `previews/<commit-sha>`.
+- If you use the helper script to push GitHub secrets, do not run it with `sudo`; `gh` reads the login for the current user, so root will not see your normal CLI session.

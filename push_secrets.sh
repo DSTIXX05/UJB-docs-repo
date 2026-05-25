@@ -12,9 +12,15 @@ if ! command -v gh >/dev/null 2>&1; then
     exit 1
 fi
 
+if [ "${EUID:-$(id -u)}" -eq 0 ]; then
+    echo "Error: Do not run this script with sudo."
+    echo "Run it as your normal user so gh can use your existing login session."
+    exit 1
+fi
+
 if ! gh auth status >/dev/null 2>&1; then
-    echo "Error: You are either not authenticated with gh. or using sudo"
-    echo "Run: gh auth login"
+    echo "Error: You are not authenticated with gh for this user."
+    echo "If you used sudo, rerun without sudo after logging in with: gh auth login"
     exit 1
 fi
 
