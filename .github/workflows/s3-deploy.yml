@@ -63,7 +63,7 @@ jobs:
       - name: Sync to S3 preview prefix
         run: |
           PREVIEW_BUCKET="${{ secrets.S3_BUCKET_PREVIEW }}"
-          PREFIX="previews/latest"
+          PREFIX="/"
           echo "Uploading to s3://$PREVIEW_BUCKET/$PREFIX/"
           aws s3 sync build/ s3://$PREVIEW_BUCKET/$PREFIX/ --delete --acl public-read --no-progress
           echo "Preview URL: https://$PREVIEW_BUCKET.s3.amazonaws.com/$PREFIX/"
