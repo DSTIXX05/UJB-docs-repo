@@ -4,7 +4,7 @@ on:
   pull_request:
     types: [opened, reopened, synchronize]
   push:
-    branches: [ main ]
+    branches: [main]
 
 jobs:
   build:
@@ -19,7 +19,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '20'
+          node-version: "20"
 
       - name: Install deps
         run: npm ci
@@ -42,7 +42,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '20'
+          node-version: "20"
 
       - name: Install deps & build
         run: |
@@ -65,7 +65,8 @@ jobs:
           echo "Preview URL: https://$PREVIEW_BUCKET.s3.amazonaws.com/$PREFIX/"
 
       - name: Post preview URL
-        run: echo "Preview site: https://${{ secrets.S3_BUCKET_PREVIEW }}.s3.amazonaws.com/previews/${{ github.sha }}/"
+        run: |
+          echo "Preview site: https://${{ secrets.S3_BUCKET_PREVIEW }}.s3.amazonaws.com/previews/${{ github.sha }}/"
 
   deploy-prod:
     name: Deploy to production S3
@@ -79,7 +80,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '20'
+          node-version: "20"
 
       - name: Install deps & build
         run: |
