@@ -20,10 +20,10 @@ const config = {
   },
 
   // Set the production url of your site here
-  url: "https://your-docusaurus-site.example.com",
+  url: "https://ujb-portal-docs-preview-471112980487-us-east-1-an.s3.us-east-1.amazonaws.com",
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
-  baseUrl: "previews/c74c3b69f26076abc47239acb2e39c388412b5f3/index.html/",
+  baseUrl: "/previews/latest/",
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
