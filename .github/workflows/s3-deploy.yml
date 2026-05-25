@@ -101,7 +101,9 @@ jobs:
           aws s3 sync build/ s3://$PROD_BUCKET/ --delete --acl public-read --no-progress
 
       - name: Optional CloudFront invalidation
-        if: ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID != '' }}
+        env:
+          CLOUDFRONT_DISTRIBUTION_ID: ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }}
         run: |
-          DIST_ID="${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }}"
-          aws cloudfront create-invalidation --distribution-id "$DIST_ID" --paths "/*"
+          if [ -n "$CLOUDFRONT_DISTRIBUTION_ID" ]; then
+            aws cloudfront create-invalidation --distribution-id "$CLOUDFRONT_DISTRIBUTION_ID" --paths "/*"
+          fi
