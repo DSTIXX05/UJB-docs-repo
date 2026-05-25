@@ -23,7 +23,7 @@ const config = {
   url: "https://ujb-portal-docs-preview-471112980487-us-east-1-an.s3.us-east-1.amazonaws.com",
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
-  baseUrl: "/index.html",
+  baseUrl: "/",
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
