@@ -72,42 +72,42 @@ jobs:
         run: |
           echo "Preview site: https://${{ secrets.S3_BUCKET_PREVIEW }}.s3.amazonaws.com/previews/${{ github.sha }}/"
 
-  deploy-prod:
-    name: Deploy to production S3
-    runs-on: ubuntu-latest
-    needs: build
-    if: github.ref == 'refs/heads/main'
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
+  # deploy-prod:
+  #   name: Deploy to production S3
+  #   runs-on: ubuntu-latest
+  #   needs: build
+  #   if: github.ref == 'refs/heads/main'
+  #   steps:
+  #     - name: Checkout
+  #       uses: actions/checkout@v4
 
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: "20"
+  #     - name: Setup Node.js
+  #       uses: actions/setup-node@v4
+  #       with:
+  #         node-version: "20"
 
-      - name: Install deps & build
-        run: |
-          npm ci
-          npm run build
+  #     - name: Install deps & build
+  #       run: |
+  #         npm ci
+  #         npm run build
 
-      - name: Configure AWS credentials
-        uses: aws-actions/configure-aws-credentials@v2
-        with:
-          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          aws-region: ${{ secrets.AWS_REGION }}
+  #     - name: Configure AWS credentials
+  #       uses: aws-actions/configure-aws-credentials@v2
+  #       with:
+  #         aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+  #         aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+  #         aws-region: ${{ secrets.AWS_REGION }}
 
-      - name: Sync to production S3 bucket
-        run: |
-          PROD_BUCKET="${{ secrets.S3_BUCKET_PROD }}"
-          echo "Uploading to s3://$PROD_BUCKET/"
-          aws s3 sync build/ s3://$PROD_BUCKET/ --delete --acl public-read --no-progress
+  #     - name: Sync to production S3 bucket
+  #       run: |
+  #         PROD_BUCKET="${{ secrets.S3_BUCKET_PROD }}"
+  #         echo "Uploading to s3://$PROD_BUCKET/"
+  #         aws s3 sync build/ s3://$PROD_BUCKET/ --delete --acl public-read --no-progress
 
-      - name: Optional CloudFront invalidation
-        env:
-          CLOUDFRONT_DISTRIBUTION_ID: ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }}
-        run: |
-          if [ -n "$CLOUDFRONT_DISTRIBUTION_ID" ]; then
-            aws cloudfront create-invalidation --distribution-id "$CLOUDFRONT_DISTRIBUTION_ID" --paths "/*"
-          fi
+  #     - name: Optional CloudFront invalidation
+  #       env:
+  #         CLOUDFRONT_DISTRIBUTION_ID: ${{ secrets.CLOUDFRONT_DISTRIBUTION_ID }}
+  #       run: |
+  #         if [ -n "$CLOUDFRONT_DISTRIBUTION_ID" ]; then
+  #           aws cloudfront create-invalidation --distribution-id "$CLOUDFRONT_DISTRIBUTION_ID" --paths "/*"
+  #         fi
