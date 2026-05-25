@@ -60,17 +60,16 @@ jobs:
           aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           aws-region: ${{ secrets.AWS_REGION }}
 
-      - name: Sync to S3 preview prefix
+      - name: Sync to S3 bucket root
         run: |
           PREVIEW_BUCKET="${{ secrets.S3_BUCKET_PREVIEW }}"
-          PREFIX="/"
-          echo "Uploading to s3://$PREVIEW_BUCKET/$PREFIX/"
-          aws s3 sync build/ s3://$PREVIEW_BUCKET/$PREFIX/ --delete --acl public-read --no-progress
-          echo "Preview URL: https://$PREVIEW_BUCKET.s3.amazonaws.com/$PREFIX/"
+          echo "Uploading to s3://$PREVIEW_BUCKET/"
+          aws s3 sync build/ s3://$PREVIEW_BUCKET --delete --acl public-read --no-progress
+          echo "Site URL: https://$PREVIEW_BUCKET.s3.amazonaws.com/"
 
-      - name: Post preview URL
+      - name: Post site URL
         run: |
-          echo "Preview site: https://${{ secrets.S3_BUCKET_PREVIEW }}.s3.amazonaws.com/previews/latest/"
+          echo "Site URL: https://${{ secrets.S3_BUCKET_PREVIEW }}.s3.amazonaws.com/"
 
   # deploy-prod:
   #   name: Deploy to production S3

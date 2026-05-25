@@ -13,8 +13,8 @@ Required repository secrets (set these in GitHub Settings → Secrets):
 
 Workflow behavior:
 
-- On pull requests: builds the site and syncs the `build/` folder to `s3://$S3_BUCKET_PREVIEW/previews/<commit-sha>/`.
-- On push to `main`: builds the site and syncs `build/` to the production bucket root `s3://$S3_BUCKET_PROD/` and optionally invalidates CloudFront.
+- Current deploy job syncs the `build/` folder directly to `s3://$S3_BUCKET_PREVIEW/` (bucket root).
+- If you re-enable the production job, on push to `main` it syncs `build/` to `s3://$S3_BUCKET_PROD/` and can invalidate CloudFront.
 
 Local testing:
 
@@ -34,5 +34,5 @@ aws s3 sync build/ s3://your-bucket/ --acl public-read
 Notes:
 
 - Make sure the IAM keys used by the workflow have `s3:PutObject`, `s3:DeleteObject`, and `s3:ListBucket` on the target buckets. If you use CloudFront invalidation, add `cloudfront:CreateInvalidation`.
-- If you want per-PR friendly URLs, the workflow stores previews under `previews/<commit-sha>`.
+- Since deploy is at bucket root, keep Docusaurus `baseUrl` as `/`.
 - If you use the helper script to push GitHub secrets, do not run it with `sudo`; `gh` reads the login for the current user, so root will not see your normal CLI session.
