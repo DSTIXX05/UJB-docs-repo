@@ -10,8 +10,9 @@ import { themes as prismThemes } from "prism-react-renderer";
 
 /** @type {import('@docusaurus/types').Config} */
 const config = {
-  title: "UJBMart Admin Portal Documentation",
-  tagline: "UJB Admin portal documentation",
+  title: "UJB Mart Admin Dashboard User Manual",
+  tagline:
+    "Welcome to the official UJB Mart Admin Dashboard User Manual. This comprehensive guide is designed to help administrators seamlessly navigate and manage the backend ecosystem of UJB Laundry Mart, including orders, riders, customers, system pricing, and core operational pools.",
   favicon: "img/ujb_icon.svg",
 
   // Future flags, see https://docusaurus.io/docs/api/docusaurus-config#future
@@ -20,7 +21,8 @@ const config = {
   },
 
   // Set the production url of your site here
-  url: "https://ujb-portal-docs-preview-471112980487-us-east-1-an.s3.us-east-1.amazonaws.com",
+  // Use the S3 website endpoint so directory routes resolve to index.html.
+  url: "http://ujb-portal-docs-preview-471112980487-us-east-1-an.s3-website-us-east-1.amazonaws.com",
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
   baseUrl: "/",

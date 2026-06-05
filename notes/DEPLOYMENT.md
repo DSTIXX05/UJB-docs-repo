@@ -14,6 +14,7 @@ Required repository secrets (set these in GitHub Settings → Secrets):
 Workflow behavior:
 
 - Current deploy job syncs the `build/` folder directly to `s3://$S3_BUCKET_PREVIEW/` (bucket root).
+- Open the site through the S3 website endpoint, not the REST endpoint, so directory routes resolve to `index.html`.
 - If you re-enable the production job, on push to `main` it syncs `build/` to `s3://$S3_BUCKET_PROD/` and can invalidate CloudFront.
 
 Local testing:
@@ -35,4 +36,5 @@ Notes:
 
 - Make sure the IAM keys used by the workflow have `s3:PutObject`, `s3:DeleteObject`, and `s3:ListBucket` on the target buckets. If you use CloudFront invalidation, add `cloudfront:CreateInvalidation`.
 - Since deploy is at bucket root, keep Docusaurus `baseUrl` as `/`.
+- For S3 website hosting in `us-east-1`, the preview URL should look like `http://<bucket>.s3-website-us-east-1.amazonaws.com/`.
 - If you use the helper script to push GitHub secrets, do not run it with `sudo`; `gh` reads the login for the current user, so root will not see your normal CLI session.

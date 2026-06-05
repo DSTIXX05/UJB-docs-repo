@@ -42,7 +42,7 @@ function PortalScreenshot() {
           </p>
           <img
             className={styles.screenshotImage}
-            src="/img/ss/image1.png"
+            src="/img/ss/image.png"
             alt="Screenshot of the user portal"
           />
         </div>

@@ -65,11 +65,11 @@ jobs:
           PREVIEW_BUCKET="${{ secrets.S3_BUCKET_PREVIEW }}"
           echo "Uploading to s3://$PREVIEW_BUCKET/"
           aws s3 sync build/ s3://$PREVIEW_BUCKET --delete --acl public-read --no-progress
-          echo "Site URL: https://$PREVIEW_BUCKET.s3.amazonaws.com/"
+          echo "Site URL: http://$PREVIEW_BUCKET.s3-website-us-east-1.amazonaws.com/"
 
       - name: Post site URL
         run: |
-          echo "Site URL: https://${{ secrets.S3_BUCKET_PREVIEW }}.s3.amazonaws.com/"
+          echo "Site URL: http://${{ secrets.S3_BUCKET_PREVIEW }}.s3-website-us-east-1.amazonaws.com/"
 
   # deploy-prod:
   #   name: Deploy to production S3
