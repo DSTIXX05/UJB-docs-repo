@@ -4,22 +4,78 @@ sidebar_position: 3
 
 # Rider Management
 
-![User portal screenshot](/img/ss/image6.png)
-
-The Riders Management interface displays a holistic index of dispatch personnel paired with their real-time performance and system status metrics.
-
-## Managing Individual Riders
-
 ![User portal screenshot](/img/ss/image7.png)
-Clicking the 3-dot action menu on any rider's record launches their profile card, enabling the following management functions:
 
-![User portal screenshot](/img/ss/image8.png)
+The Riders Management interface displays a holistic index of dispatch personnel paired with their real-time performance and system status metrics. If no riders are currently registered in the system, the portal displays a "No rider available" notification.
 
-- **Rider Profiling:** View comprehensive contact information, Address, Vehicle Type, Vehicle Color, and Max. Capacity.
-- **App State & Status:** Monitor if a rider is Online/Offline or Active/Suspended.
-- **Performance Metrics:** View historical metrics like Completed Orders and Date Joined.
-- **Administrative Actions:**
-  - Review specific Assignments.
-  - Dispatch an in-app text via Send Message.
-  - Toggle operational modes via the dropdown menu (Offline, Online, Busy).
-  - Revoke platform access instantly using the Suspend button.
+## Onboarding & Creating a New Rider
+
+To manually onboard a new dispatch agent into the system:
+
+1. Navigate to the Riders Management page from the main menu.
+2. Click the New Rider button located at the top-right corner of the interface.
+   ![User portal screenshot](/img/ss/image42.png)
+3. A modal field titled Add Rider will pop up. Fill out the following required credentials:
+
+- First Name & Last Name
+- Email & Phone Number
+- Address, State, and City
+
+4. Click Save.
+
+## Setting Up a Rider Profile
+
+Once the basic contact info is saved, a secondary Create Profile modal will prompt you to define the rider's logistics variables:
+
+![User portal screenshot](/img/ss/image43.png)
+
+- Once the basic contact info is saved, a secondary Create Profile modal will prompt you to define the rider's logistics variables:
+
+![User portal screenshot](/img/ss/image44.png)
+
+- Vehicle Type: Select the underlying vehicle platform from the dropdown menu (e.g., Motorcycle, Bicycle).
+- Vehicle Model: Specify the manufacturer/model index (e.g., TVS).
+- Vehicle Color: Enter the primary color of the vehicle (e.g., Black).
+- Registration Number: Input the official legal license plate or fleet number (e.g., ABC123BH).
+- Maximum Order Capacity: Define the maximum number of structural laundry bundles the vehicle can securely transport at one time (e.g., 10).
+- Click Create to finalize the profile and add them to the active system roster.
+
+## Viewing Rider Details
+
+Clicking the 3-dot action menu next to any rider's record and selecting **View** launches their comprehensive profile card. From this central overlay, you can inspect:
+
+![User portal screenshot](/img/ss/image45.png)
+
+- App State & Status: Monitor real-time connectivity states (Online / Offline) and system standing (Active / Suspended).
+- Performance Metrics: Review total Completed Orders, Date Joined, and their unique automated system Rider Code (e.g., RDR-6555).
+- Assignments Log: Click the designated Assignments button at the bottom of the overlay to drill down into historical or current order delivery routes mapped to that rider.
+
+## Messaging Riders Directly
+
+![User portal screenshot](/img/ss/image46.png)
+
+The portal allows direct communication with dispatchers via their registered email address:
+
+1. Open the rider's profile card using the 3-dot icon > View sequence.
+2. Click the Send Message action button.
+3. A Message modal will appear with the rider's destination Email pre-filled.
+4. Enter a clear Subject line, compose your text body in the Message box, and click Send.
+
+## Editing a Rider Profile
+
+![User portal screenshot](/img/ss/image47.png)
+
+If a rider changes their vehicle or updates their personal info, their records can be modified at any time:
+
+1. Click the 3-dot action menu corresponding to the rider you want to modify.
+2. Select Edit Profile to bring up the R Edit Profile form.
+3. Adjust the necessary criteria (Vehicle Type, Model, Color, Registration Number, or Max Capacity) and click Update to save the changes.
+
+## Suspending a Rider
+
+![User portal screenshot](/img/ss/image48.png)
+
+If a rider violates platform policies or needs to be temporarily benched from receiving automated pool assignments, you can quickly freeze their account:
+
+- Method 1: Click the 3-dot action menu directly on the main Rider Management ledger row and select Suspend from the quick-actions dropdown list.
+- Method 2: Open the rider's detail card via the View overlay and click the red Suspend button located at the bottom right corner.

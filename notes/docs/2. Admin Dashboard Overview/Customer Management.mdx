@@ -8,18 +8,91 @@ sidebar_position: 4
 
 The Customer Management ledger tracks user interaction data to assist in customer support and targeted business operations.
 
-## Customer Directory Metrics
+## The Customers Directory
 
-The primary directory focuses on key financial and demographic attributes, notably tracking the total Amount Spent per user—a strategic data point used to drive tailored business decisions, loyalty steps, and promotions.
+The main directory dashboard logs vital data vectors for all clientele:
 
-## Customer Profiles
+- Name
+- Email
+- Phone Number
+- Address
+- Orders (Cumulative order count)
+- Amount Spent (A strategic financial data point used to drive tailored business metrics and loyalty programs)
+- Status (Current account profile standing, e.g., Active or Suspended)
 
-Clicking the 3-dot icon on a customer record opens a specialized detail overlay:
+## Onboarding & Creating a New Customer
 
-![User portal screenshot](/img/ss/image10.png)
+Manually creating a user via the administrative dashboard is explicitly designed for enrolling new customers who visit the physical walk-in store.
 
-- Account Identity: View metrics including Account Status (Active/Inactive), Total Orders placed, Email, Phone Number, and registration date.
-- Administrative Actions:
-  - **View Order History:** Instantly review a granular timeline of their past transactions.
-  - **Send Message:** Send communications directly to the user.
-  - **Block Account:** Permanently or temporarily freeze the user’s platform access in cases of policy violation.
+1. Navigate to the Customer Management page via the main side navigation menu.
+2. Click the New Customer button situated at the top-right corner of the window.
+   ![User portal screenshot](/img/ss/image49.png)
+
+3. A New Customer configuration modal will display. Populate the mandatory input fields:
+   - First Name & Last Name
+   - Email & Phone Number
+   - Address
+   - State & City
+     ![User portal screenshot](/img/ss/image50.png)
+
+4. Click Save to complete enrollment.
+
+## Managing Customer Accounts
+
+Clicking the 3-dot action menu icon at the far right of any specific customer record launches a detail modal that allows you to review historical data and execute administrative actions.
+
+### 1. Profile Verification & Summary
+
+The entry page of the modal displays a snapshot of the account's context:
+
+- Profile Indicators: Monitor their live account Status, cumulative Amount spent, Total orders processed, and exact Date joined.
+- Contact Verification: Displays the verified primary Email, Phone number, and structural Address lines mapped to that identity.
+
+### 2. Reviewing Customer Order History
+
+![User portal screenshot](/img/ss/image51.png)
+
+To audit the full historical lifecycle of transactions associated with an individual account:
+
+1. Open the customer's detail overlay via the 3-dot menu.
+2. Click the View Order History button.
+3. The console will launch the dedicated Customer's Orders History sub-panel. This directory lists crucial parameters for every corresponding entry:
+   1. Order ID
+   2. Amount
+   3. Payment
+   4. Type (e.g., Transfer)
+   5. Order Date
+   6. Delivery Mode (e.g., Delivery)
+   7. Status
+
+4. Granular Analysis: To drill deeper into a particular request timeline, click the View button at the far right of the selected order row. This redirects you to the live Order Management processing template containing structural details, assigned courier diagnostics, and the 12-step milestone pipeline.
+   ![User portal screenshot](/img/ss/image52.png)
+
+### 3. Messaging Customers Directly
+
+Admins can send communications directly to a customer's external inbox using the integrated mail gateway:
+![User portal screenshot](/img/ss/image53.png)
+
+1. From the customer's detailed action overlay, click the Send Message button.
+2. A Message modal will manifest, with the customer's registered destination Email address pre-filled.
+3. Type a precise Subject line, write your notice text body inside the Message field, and click Send.
+
+### 4. Suspending & Restoring Accounts (Block/Unblock)
+
+If a user violates platform policies, or if an account needs to be isolated for safety reasons, administrators can modify access privileges using the dashboard control options.
+
+### Suspending an Account (Blocking):
+
+![User portal screenshot](/img/ss/image54.png)
+
+    1. Open the customer overlay via the 3-dot menu.
+    2. Click the red Block Account button at the bottom of the form.
+    3. Status Verification: To confirm the platform has correctly enforced the constraint, review the customer directory ledger. The user's Status tag will transition from a green indicator to a red Suspended label, and their internal status badge within the profile modal will mirror this update.
+    ![User portal screenshot](/img/ss/image55.png)
+
+### Restoring an Account (Unblocking):
+
+    1. Click the 3-dot menu next to the target suspended customer profile.
+    2. Locate the button at the base of the modal window, which has dynamically converted into a teal Unblock Account switch.
+    3. Click Unblock Account to instantly restore full platform access and reset their profile standing back to Active.
+    ![User portal screenshot](/img/ss/image56.png)
